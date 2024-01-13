@@ -1,2 +1,2 @@
 # stepik_PO
-# Stepik module: Usage of Page Object Pattern
+Stepik module: Usage of Page Object Pattern
