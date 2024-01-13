@@ -1,7 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
 import pytest
 from selenium.webdriver.chrome.options import Options
 
@@ -11,6 +8,7 @@ def pytest_addoption(parser):
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default='en',
                      help="Choose lang")
+
 
 @pytest.fixture(scope="function")
 def browser(request):
@@ -31,3 +29,8 @@ def browser(request):
     yield browser
     print("\nquit browser...")
     browser.quit()
+
+
+@pytest.fixture(scope="function")
+def user_language(request):
+    return request.config.getoption("language")

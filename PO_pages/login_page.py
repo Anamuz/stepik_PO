@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
 from .locators import RegistrationLocators
-from selenium.webdriver import Keys
 import time
 
 
@@ -20,7 +19,7 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.register_form), 'Excpected register form'
 
-    def register_new_user(self): 
+    def register_new_user(self):
         email = str(time.time()) + "@fakemail.org"
         password = str(time.time()) + "qwerty123"
         reg_mail = self.browser.find_element(*RegistrationLocators.e_mail)
